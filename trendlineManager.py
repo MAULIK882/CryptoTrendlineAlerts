@@ -22,6 +22,8 @@ load_dotenv()
 
 ###########################################################
 
+print("trendlineManager started.")
+
 # Enable logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
@@ -214,13 +216,7 @@ def main() -> None:
 			FINAL: [
                 MessageHandler(Filters.text & ~(Filters.command | Filters.regex('^Done$')), final_action),
             ],
-			
-            TYPING_UPDATE: [
-                MessageHandler(
-                    Filters.text & ~(Filters.command | Filters.regex('^Done$')),
-                    update_action,
-                )
-            ],
+            
             TYPING_REMOVE: [
                 MessageHandler(
                     Filters.text & ~(Filters.command | Filters.regex('^Done$')),
